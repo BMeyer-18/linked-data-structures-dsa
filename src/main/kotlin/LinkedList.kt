@@ -2,8 +2,22 @@ package org.linked_data_structures
 
 /**
  * A class for a doubly linked list to contain elements of type T.
+ *
+ * @param T the type of data to be stored by the linked list
+ * @property head the first node in the linked list
+ * @property tail the last node in the linked list
+ * @constructor Creates an empty linked list
  */
 class LinkedList<T> {
+    /**
+     * A data class to represent an individual node in the linked list.
+     *
+     * @param T the type of data to be stored in the node
+     * @property data the data of type T to be stored in the node
+     * @property next the next node in the linked list. Null if none.
+     * @property last the previous node in the linked list. Null if none.
+     * @constructor Creates a node with data and a reference to the next and previous elements.
+     */
     data class Node<T>(var data: T, var next: Node<T>?, var last: Node<T>?)
 
     var head: Node<T>? = null
@@ -71,6 +85,6 @@ class LinkedList<T> {
      * @return true if the list is empty and false otherwise
      */
     fun isEmpty(): Boolean {
-        return (head == null && tail == null)
+        return head == null
     }
 }
