@@ -28,6 +28,7 @@ class LinkedList<T> {
      */
     fun pushFront(data: T) {
         val newNode = Node(data, head, null)
+        head?.last = newNode
         head = newNode
         if (tail == null)
             tail = newNode
@@ -38,6 +39,7 @@ class LinkedList<T> {
      */
     fun pushBack(data: T) {
         val newNode = Node(data, null, tail)
+        tail?.next = newNode
         tail = newNode
         if (head == null)
             head = newNode
@@ -50,6 +52,7 @@ class LinkedList<T> {
     fun popFront(): T? {
         val oldHead = head
         head = oldHead?.next
+        head?.last = null
         if (head == null)
             tail = null
         return oldHead?.data
@@ -62,6 +65,7 @@ class LinkedList<T> {
     fun popBack(): T? {
         val oldTail = tail
         tail = oldTail?.last
+        tail?.next = null
         if (tail == null)
             head = null
         return oldTail?.data
