@@ -4,4 +4,5 @@ fun main() {
     testLinkedList()
     testStack()
     testQueue()
+    testIsValid()
 }
